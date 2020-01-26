@@ -14,8 +14,8 @@ namespace SSIM
         static void Main(string[] args)
         {
             
-            List<double> list = new List<double>();
-            double number;
+            List<decimal> list = new List<decimal>();
+            decimal number;
             string line;
             string regexStrStart = ".*All:";
             string regexStrEnd = " .*";
@@ -60,12 +60,12 @@ namespace SSIM
                         actual_number = Regex.Replace(actual_number, regexStrEnd, "");
                         //0.999732
 
-                        number = double.Parse(actual_number, CultureInfo.InvariantCulture); // Might be wrong, but works in denmark
+                        number = decimal.Parse(actual_number, CultureInfo.InvariantCulture); // Might be wrong, but works in denmark
                        
                         list.Add(number);
 
                     }
-                    double average = list.Average();
+                    decimal average = list.Average();
                     Resultfile.WriteLine(fileIndir + ";" + average);
                 }
                 Resultfile.Close();
@@ -86,13 +86,13 @@ namespace SSIM
                     actual_number = Regex.Replace(actual_number, regexStrEnd,"");
                     //0.999732
 
-                    number = double.Parse(actual_number, CultureInfo.InvariantCulture); // Might be wrong, but works in denmark
+                    number = decimal.Parse(actual_number, CultureInfo.InvariantCulture); // Might be wrong, but works in denmark
                     //2.2
                     list.Add(number);
 
                 }
                 //3
-                double average = list.Average();
+                decimal average = list.Average();
                 //4
 
                 Console.WriteLine(average);
