@@ -67,6 +67,7 @@ namespace SSIM
                     }
                     decimal average = list.Average();
                     Resultfile.WriteLine(fileIndir + ";" + average);
+                    list.Clear();
                 }
                 Resultfile.Close();
 
@@ -96,7 +97,7 @@ namespace SSIM
                 //4
 
                 Console.WriteLine(average);
-                
+                list.Clear();
                 
                 file.Close();
 
