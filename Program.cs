@@ -14,8 +14,7 @@ namespace SSIM
         static void Main(string[] args)
         {
             
-            List<decimal> list = new List<decimal>();
-            decimal number;
+            
             string line;
             string regexStrStart = ".*All:";
             string regexStrEnd = " .*";
@@ -51,9 +50,13 @@ namespace SSIM
                 //2
                 foreach (string fileIndir in arr)
                 {
+                    List<decimal> list = new List<decimal>();
+
                     StreamReader ActFile = new StreamReader(fileIndir);
                     while ((line = ActFile.ReadLine()) != null)
                     {
+                        
+                        decimal number;
                         //n:1 Y:0.999831 U:0.999362 V:0.999708 All:0.999732 (35.726670)
                         //2.1
                         string actual_number = Regex.Replace(line, regexStrStart, "");
@@ -79,10 +82,13 @@ namespace SSIM
                 //1
                 StreamReader file = new StreamReader(args[0]);
                 //2
+                List<decimal> list = new List<decimal>();
+
                 while ((line = file.ReadLine()) != null)
                 {
+                    decimal number;
                     //n:1 Y:0.999831 U:0.999362 V:0.999708 All:0.999732 (35.726670)
-                   //2.1
+                    //2.1
                     string actual_number = Regex.Replace(line, regexStrStart, "");
                     actual_number = Regex.Replace(actual_number, regexStrEnd,"");
                     //0.999732
